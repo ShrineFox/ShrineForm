@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShrineForm", "ShrineForm.csproj", "{440E6330-938F-4500-AD07-4CEA58D50A84}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShrineFox.IO", "..\ShrineFox.io\ShrineFox.IO.csproj", "{7640412A-7372-4925-B20C-0178D8818A8F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{440E6330-938F-4500-AD07-4CEA58D50A84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{440E6330-938F-4500-AD07-4CEA58D50A84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{440E6330-938F-4500-AD07-4CEA58D50A84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{440E6330-938F-4500-AD07-4CEA58D50A84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7640412A-7372-4925-B20C-0178D8818A8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7640412A-7372-4925-B20C-0178D8818A8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7640412A-7372-4925-B20C-0178D8818A8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7640412A-7372-4925-B20C-0178D8818A8F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8005A821-D011-4005-A49A-950298A4D424}
+	EndGlobalSection
+EndGlobal

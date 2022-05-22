@@ -1,4 +1,5 @@
 ﻿using Microsoft.WindowsAPICodePack.Dialogs;
+using ShrineFox.IO;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -17,7 +18,7 @@ namespace ShrineForm
         private void Save_Click(object sender, EventArgs e)
         {
             // Commit form changes to settings object
-            UpdateSettings();
+            ShrineForm_Form.settings.UpdateSettings(this);
 
             // Make sure project name/paths are valid and then save YML
             if (!IsValid())
@@ -27,26 +28,15 @@ namespace ShrineForm
                     "Warning: Invalid Project Name",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
-                Program.settings.ProjectName = "";
+                ShrineForm_Form.settings = new Settings();
             }
             else
             {
-                SaveSettings();
+                // Save settings to zettings.yml
+                ShrineForm_Form.settings.Save("zettingz.yml");
 
                 this.DialogResult = DialogResult.OK;
                 this.Close();
-            }
-        }
-
-        public void Path_Click(object sender, EventArgs e)
-        {
-            TextBox txtBox = (TextBox)sender;
-            CommonOpenFileDialog dialog = new CommonOpenFileDialog();
-            dialog.IsFolderPicker = true;
-            dialog.Title = "Choose Folder...";
-            if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
-            {
-                txtBox.Text = dialog.FileName;
             }
         }
 

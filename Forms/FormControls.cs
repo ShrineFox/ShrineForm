@@ -47,6 +47,7 @@ namespace ShrineForm
             ToolStripMenuItem[] newMenuItems = new ToolStripMenuItem[] 
             {
                 new ToolStripMenuItem() { Name = "rightClickMenu_New", Text = "New", Tag = "All" },
+                new ToolStripMenuItem() { Name = "rightClickMenu_Replace", Text = "Open With...", Tag = "File" },
                 new ToolStripMenuItem() { Name = "rightClickMenu_Replace", Text = "Replace", Tag = "File" },
                 new ToolStripMenuItem() { Name = "rightClickMenu_Remove", Text = "Remove", Tag = "All" },
                 new ToolStripMenuItem() { Name = "rightClickMenu_ShowInExplorer", Text = "Show in Explorer", Tag = "All" },

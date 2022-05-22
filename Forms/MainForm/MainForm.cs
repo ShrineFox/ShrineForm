@@ -15,10 +15,12 @@ namespace ShrineForm
 {
     public partial class ShrineForm_Form : MetroSet_UI.Forms.MetroSetForm
     {
+        public static Settings settings = new Settings();
+
         public ShrineForm_Form()
         {
             InitializeComponent();
-            this.Text = $"{AssemblyName.GetAssemblyName(Assembly.GetExecutingAssembly().Location).Name}";
+            this.Text = $"{Exe.Name()} ";
 
             SetupLogging();
 

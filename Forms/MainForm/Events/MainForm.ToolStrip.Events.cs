@@ -15,15 +15,14 @@ namespace ShrineForm
 {
     public partial class ShrineForm_Form : MetroSet_UI.Forms.MetroSetForm
     {
-
         private void NewProject_Click(object sender, EventArgs e)
         {
             // Clear Title Bar
-            this.Text = $"{AssemblyName.GetAssemblyName(Assembly.GetExecutingAssembly().Location).Name}";
+            this.Text = $"{AssemblyName.GetAssemblyName(Assembly.GetExecutingAssembly().Location).Name} ";
             // Disable Save As... option
             saveProjectToolStripMenuItem.Enabled = false;
             // Initialize settings
-            Program.settings = new Settings();
+            settings = new Settings();
             OpenSettingsForm();
             //metroSetTabControl_FileExplorer.SelectedIndex = 0;
         }
@@ -33,9 +32,8 @@ namespace ShrineForm
             OpenSettingsForm();
         }
 
-        private void OpenSettingsForm(string projectPath = "")
+        private void OpenSettingsForm()
         {
-            // Load settings from form
             using (var dialog = new SettingsForm())
             {
                 if (dialog.ShowDialog() != DialogResult.OK)
@@ -57,7 +55,7 @@ namespace ShrineForm
             var deserializer = new DeserializerBuilder().WithNamingConvention(PascalCaseNamingConvention.Instance).Build();
             if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
             {
-                Program.settings = deserializer.Deserialize<Settings>(File.ReadAllText(dialog.FileName));
+                settings = deserializer.Deserialize<Settings>(File.ReadAllText(dialog.FileName));
                 LoadProject();
             }
             //metroSetTabControl_FileExplorer.SelectedIndex = 1;
@@ -71,8 +69,8 @@ namespace ShrineForm
             if (SettingsForm.IsValid())
             {
                 // Add current project name to Title Bar
-                this.Text = $"{AssemblyName.GetAssemblyName(Assembly.GetExecutingAssembly().Location).Name}" +
-                    $" - {Program.settings.ProjectName}";
+                this.Text = $"{Exe.Name()} - {settings.GetValue("ProjectName")}";
+
                 // Set up form controls
                 SetupFormControls();
 
@@ -83,19 +81,21 @@ namespace ShrineForm
 
         private void SetupFormControls()
         {
+            string inputFolderPath = settings.GetValue("InputFolderPath");
+            string projectFolderPath = settings.GetValue("ProjectFolderPath");
             // File Explorer Tabs with Treeviews
             var browserTabControl = FormControls.SFTabControl("metroSetTabControl_FileBrowser");
             var inputFilesTabPage = FormControls.SFTabPage("inputFilesTabPage", "Files");
             var inputFilesTreeView = FormControls.SFTreeView("inputFilesTreeView", 0);
-            if (Directory.Exists(Path.GetDirectoryName(Program.settings.InputFolderPath)))
-                TreeViewBuilder.BuildTree(new DirectoryInfo(Path.GetDirectoryName(Program.settings.InputFolderPath)), inputFilesTreeView.Nodes);
+            if (Directory.Exists(Path.GetDirectoryName(inputFolderPath)))
+                TreeViewBuilder.BuildTree(new DirectoryInfo(Path.GetDirectoryName(inputFolderPath)), inputFilesTreeView.Nodes);
             inputFilesTabPage.Controls.Add(inputFilesTreeView);
             browserTabControl.TabPages.Add(inputFilesTabPage);
 
             var projectFilesTabPage = FormControls.SFTabPage("projectFilesTabPage", "Project");
             var projectFilesTreeView = FormControls.SFTreeView("projectFilesTreeView", 0);
-            if (Directory.Exists(Path.GetDirectoryName(Program.settings.ProjectFolderPath)))
-                TreeViewBuilder.BuildTree(new DirectoryInfo(Path.GetDirectoryName(Program.settings.ProjectFolderPath)), projectFilesTreeView.Nodes);
+            if (Directory.Exists(Path.GetDirectoryName(projectFolderPath)))
+                TreeViewBuilder.BuildTree(new DirectoryInfo(Path.GetDirectoryName(projectFolderPath)), projectFilesTreeView.Nodes);
             projectFilesTabPage.Controls.Add(projectFilesTreeView);
             browserTabControl.TabPages.Add(projectFilesTabPage);
 
@@ -109,7 +109,7 @@ namespace ShrineForm
         {
             if (SettingsForm.IsValid())
             {
-                string originalProj = Program.settings.YMLPath();
+                string originalProj = settings.YmlPath;
                 string projDir = Path.GetDirectoryName(originalProj);
                 RenameForm rename = new RenameForm(Path.GetFileName(projDir));
                 var result = rename.ShowDialog();
@@ -119,14 +119,14 @@ namespace ShrineForm
                     string newProjDir = Path.Combine(Path.GetDirectoryName(projDir), newProjName);
                     if (!Directory.Exists(Path.GetDirectoryName(newProjDir)))
                     {
-                        Program.settings.ProjectName = newProjName;
+                        settings.SetValue("ProjectName", newProjName);
                         Output.Log($"[INFO] Copying project files from \"{Path.GetFileNameWithoutExtension(originalProj)}\" to \"{Path.GetFileNameWithoutExtension(newProjDir)}\"");
                         // Copy all project files to new directory
                         FileSys.CopyDir(projDir, newProjDir);
                         // Delete original project file copied with other project stuff
                         File.Delete(Path.Combine(newProjDir, Path.GetFileName(originalProj)));
                         // Save and reload new project
-                        SettingsForm.SaveSettings();
+                       // SettingsForm.SaveSettings();
                         LoadProject();
                     }
                     else

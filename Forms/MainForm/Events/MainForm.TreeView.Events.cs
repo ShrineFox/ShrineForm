@@ -27,8 +27,8 @@ namespace ShrineForm
                             var projectExpansionState = treeView_Project.Nodes.GetExpansionState();
 
                             treeView_Project.Nodes.Clear();
-                            if (Directory.Exists(Path.GetDirectoryName(Program.settings.ProjectFolderPath)))
-                                TreeViewBuilder.BuildTree(new DirectoryInfo(Path.GetDirectoryName(Program.settings.ProjectFolderPath)), treeView_Project.Nodes);
+                            if (Directory.Exists(Path.GetDirectoryName(settings.GetValue("ProjectFolderPath"))))
+                                TreeViewBuilder.BuildTree(new DirectoryInfo(Path.GetDirectoryName(settings.GetValue("ProjectFolderPath"))), treeView_Project.Nodes);
 
                             treeView_Project.Nodes.SetExpansionState(projectExpansionState);
                         }
@@ -39,8 +39,8 @@ namespace ShrineForm
                             var filesExpansionState = treeView_Files.Nodes.GetExpansionState();
 
                             treeView_Files.Nodes.Clear();
-                            if (Directory.Exists(Path.GetDirectoryName(Program.settings.InputFolderPath)))
-                                TreeViewBuilder.BuildTree(new DirectoryInfo(Path.GetDirectoryName(Program.settings.InputFolderPath)), treeView_Files.Nodes);
+                            if (Directory.Exists(Path.GetDirectoryName(settings.GetValue("InputFolderPath"))))
+                                TreeViewBuilder.BuildTree(new DirectoryInfo(Path.GetDirectoryName(settings.GetValue("InputFolderPath"))), treeView_Files.Nodes);
                             treeView_Files.Nodes.SetExpansionState(filesExpansionState);
                         }
                     }

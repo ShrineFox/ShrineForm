@@ -17,14 +17,23 @@ namespace ShrineForm
     {
         private void NewProject_Click(object sender, EventArgs e)
         {
-            // Clear Title Bar
-            this.Text = $"{AssemblyName.GetAssemblyName(Assembly.GetExecutingAssembly().Location).Name} ";
-            // Disable Save As... option
-            saveProjectToolStripMenuItem.Enabled = false;
-            // Initialize settings
+            if (Forms.YesNoMsgBox("Exit Current Project?", 
+                "Are you sure you want to close the current project and start a new one?"))
+                NewProject();
+        }
+
+        private void NewProject()
+        {
+            this.Text = $"{Exe.Name()} ";
             settings = new Settings();
+            ClearMainFormControls();
+            saveProjectToolStripMenuItem.Enabled = false;
             OpenSettingsForm();
-            //metroSetTabControl_FileExplorer.SelectedIndex = 0;
+        }
+
+        private void ClearMainFormControls()
+        {
+            tableLayoutPanel_Main.Controls.Clear();
         }
 
         private void Settings_Click(object sender, EventArgs e)
@@ -32,55 +41,50 @@ namespace ShrineForm
             OpenSettingsForm();
         }
 
-        private void OpenSettingsForm()
+        private bool OpenSettingsForm()
         {
-            using (var dialog = new SettingsForm())
+            using (var dialog = settings.Form())
             {
+                Output.VerboseLog("Opening Settings Form");
                 if (dialog.ShowDialog() != DialogResult.OK)
-                    return;
+                {
+                    Output.VerboseLog("Closing Settings Form Without Saving");
+                    return false;
+                } 
             }
+            Output.VerboseLog("Saving Settings and Loading Project");
             LoadProject();
+            return true;
         }
 
         private void LoadProject_Click(object sender, EventArgs e)
         {
             CommonOpenFileDialog dialog = new CommonOpenFileDialog();
-            dialog.Filters.Add(new CommonFileDialogFilter("P-Studio Project", "*.yml"));
+            dialog.Filters.Add(new CommonFileDialogFilter($"{Exe.Name()} Project", "*.yml"));
             dialog.Title = "Open Project File...";
             // Start in Projects folder
-            string initialDir = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "Projects");
+            string initialDir = Path.Combine(Exe.Directory(), "Projects");
             Directory.CreateDirectory(initialDir);
             dialog.InitialDirectory = initialDir;
             // Load Settings if YML file chosen
             var deserializer = new DeserializerBuilder().WithNamingConvention(PascalCaseNamingConvention.Instance).Build();
             if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
-            {
-                settings = deserializer.Deserialize<Settings>(File.ReadAllText(dialog.FileName));
-                LoadProject();
-            }
+                LoadProject(dialog.FileName);
             //metroSetTabControl_FileExplorer.SelectedIndex = 1;
         }
 
         /// <summary>
         /// Load Files/Project treeviews and update title after validating settings.
         /// </summary>
-        private void LoadProject()
+        private void LoadProject(string ymlFile = "")
         {
-            if (SettingsForm.IsValid())
-            {
-                // Add current project name to Title Bar
-                this.Text = $"{Exe.Name()} - {settings.GetValue("ProjectName")}";
+            if (ymlFile == "" )
+            // Load settings from .yml file
+            settings.Load(ymlFile);
 
-                // Set up form controls
-                SetupFormControls();
+            // Add current project name to Title Bar
+            this.Text = $"{Exe.Name()} - {settings.GetValue("ProjectName")}";
 
-                // Enable Save option
-                saveProjectToolStripMenuItem.Enabled = true;
-            }
-        }
-
-        private void SetupFormControls()
-        {
             string inputFolderPath = settings.GetValue("InputFolderPath");
             string projectFolderPath = settings.GetValue("ProjectFolderPath");
             // File Explorer Tabs with Treeviews
@@ -103,36 +107,13 @@ namespace ShrineForm
 
             // Main Work Area Tabs with Panels
 
+            // Enable Save Toolstrip option
+            saveProjectToolStripMenuItem.Enabled = true;
         }
 
         private void SaveProjectAs_Click(object sender, EventArgs e)
         {
-            if (SettingsForm.IsValid())
-            {
-                string originalProj = settings.YmlPath;
-                string projDir = Path.GetDirectoryName(originalProj);
-                RenameForm rename = new RenameForm(Path.GetFileName(projDir));
-                var result = rename.ShowDialog();
-                if (result == DialogResult.OK)
-                {
-                    string newProjName = rename.RenameText;
-                    string newProjDir = Path.Combine(Path.GetDirectoryName(projDir), newProjName);
-                    if (!Directory.Exists(Path.GetDirectoryName(newProjDir)))
-                    {
-                        settings.SetValue("ProjectName", newProjName);
-                        Output.Log($"[INFO] Copying project files from \"{Path.GetFileNameWithoutExtension(originalProj)}\" to \"{Path.GetFileNameWithoutExtension(newProjDir)}\"");
-                        // Copy all project files to new directory
-                        FileSys.CopyDir(projDir, newProjDir);
-                        // Delete original project file copied with other project stuff
-                        File.Delete(Path.Combine(newProjDir, Path.GetFileName(originalProj)));
-                        // Save and reload new project
-                       // SettingsForm.SaveSettings();
-                        LoadProject();
-                    }
-                    else
-                        Output.Log($"[ERROR] Failed to save project as \"{newProjName}\", directory already exists");
-                }
-            }
+            
         }
     }
 }

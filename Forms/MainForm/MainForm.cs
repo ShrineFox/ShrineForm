@@ -22,9 +22,14 @@ namespace ShrineForm
             InitializeComponent();
             this.Text = $"{Exe.Name()} ";
 
+            Forms.SetDefaultIcon();
             SetupLogging();
 
-            // Set up renderer for toolstrip/menustrip
+            SetupToolstripRenderer();
+        }
+
+        private void SetupToolstripRenderer()
+        {
             ToolStripManager.Renderer = Extensions.renderer;
             menuStrip_Main.Renderer = Extensions.renderer;
         }

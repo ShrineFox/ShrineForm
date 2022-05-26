@@ -29,25 +29,23 @@ namespace ShrineForm
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ShrineForm_Form));
             this.tableLayoutPanel_Container = new System.Windows.Forms.TableLayoutPanel();
             this.metroSetProgressBar_Main = new MetroSet_UI.Controls.MetroSetProgressBar();
             this.styleManager = new MetroSet_UI.Components.StyleManager();
             this.tableLayoutPanel_Main = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel_Workspace = new System.Windows.Forms.TableLayoutPanel();
-            this.metroSetTabControl_Workspace = new MetroSet_UI.Controls.MetroSetTabControl();
             this.richTextBox_OutputLog = new System.Windows.Forms.RichTextBox();
             this.metroSetButton_ToggleSidebar = new MetroSet_UI.Controls.MetroSetButton();
+            this.metroSetTabControl_Workspace = new MetroSet_UI.Controls.MetroSetTabControl();
             this.menuStrip_Main = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel_Container.SuspendLayout();
+            this.tableLayoutPanel_Main.SuspendLayout();
             this.tableLayoutPanel_Workspace.SuspendLayout();
-            this.metroSetTabControl_Workspace.SuspendLayout();
             this.menuStrip_Main.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -104,8 +102,8 @@ namespace ShrineForm
             // 
             // tableLayoutPanel_Main
             // 
-            this.tableLayoutPanel_Main.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.tableLayoutPanel_Main.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel_Main.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.tableLayoutPanel_Main.ColumnCount = 3;
@@ -128,7 +126,6 @@ namespace ShrineForm
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel_Workspace.ColumnCount = 1;
             this.tableLayoutPanel_Workspace.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            //this.tableLayoutPanel_Workspace.Controls.Add(this.metroSetTabControl_Workspace, 0, 0);
             this.tableLayoutPanel_Workspace.Controls.Add(this.richTextBox_OutputLog, 0, 1);
             this.tableLayoutPanel_Workspace.Location = new System.Drawing.Point(286, 3);
             this.tableLayoutPanel_Workspace.Name = "tableLayoutPanel_Workspace";
@@ -180,6 +177,27 @@ namespace ShrineForm
             this.metroSetButton_ToggleSidebar.ThemeName = "MetroDark";
             this.metroSetButton_ToggleSidebar.Click += new System.EventHandler(this.ShowHide_Click);
             // 
+            // metroSetTabControl_Workspace
+            // 
+            this.metroSetTabControl_Workspace.AnimateEasingType = MetroSet_UI.Enums.EasingType.CubeOut;
+            this.metroSetTabControl_Workspace.AnimateTime = 200;
+            this.metroSetTabControl_Workspace.BackgroundColor = System.Drawing.Color.White;
+            this.metroSetTabControl_Workspace.IsDerivedStyle = true;
+            this.metroSetTabControl_Workspace.ItemSize = new System.Drawing.Size(100, 38);
+            this.metroSetTabControl_Workspace.Location = new System.Drawing.Point(0, 0);
+            this.metroSetTabControl_Workspace.Name = "metroSetTabControl_Workspace";
+            this.metroSetTabControl_Workspace.SelectedTextColor = System.Drawing.Color.White;
+            this.metroSetTabControl_Workspace.Size = new System.Drawing.Size(200, 100);
+            this.metroSetTabControl_Workspace.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
+            this.metroSetTabControl_Workspace.Speed = 100;
+            this.metroSetTabControl_Workspace.Style = MetroSet_UI.Enums.Style.Light;
+            this.metroSetTabControl_Workspace.StyleManager = null;
+            this.metroSetTabControl_Workspace.TabIndex = 0;
+            this.metroSetTabControl_Workspace.ThemeAuthor = "Narwin";
+            this.metroSetTabControl_Workspace.ThemeName = "MetroLite";
+            this.metroSetTabControl_Workspace.UnselectedTextColor = System.Drawing.Color.Gray;
+            this.metroSetTabControl_Workspace.UseAnimation = false;
+            // 
             // menuStrip_Main
             // 
             this.menuStrip_Main.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
@@ -197,7 +215,6 @@ namespace ShrineForm
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newProjectToolStripMenuItem,
             this.loadProjectToolStripMenuItem,
-            this.saveProjectToolStripMenuItem,
             this.settingsToolStripMenuItem});
             this.fileToolStripMenuItem.ForeColor = System.Drawing.Color.Silver;
             this.fileToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
@@ -211,7 +228,7 @@ namespace ShrineForm
             this.newProjectToolStripMenuItem.ForeColor = System.Drawing.Color.Silver;
             this.newProjectToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.newProjectToolStripMenuItem.Name = "newProjectToolStripMenuItem";
-            this.newProjectToolStripMenuItem.Size = new System.Drawing.Size(202, 26);
+            this.newProjectToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.newProjectToolStripMenuItem.Text = "New Project";
             this.newProjectToolStripMenuItem.Click += new System.EventHandler(this.NewProject_Click);
             // 
@@ -221,20 +238,9 @@ namespace ShrineForm
             this.loadProjectToolStripMenuItem.ForeColor = System.Drawing.Color.Silver;
             this.loadProjectToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.loadProjectToolStripMenuItem.Name = "loadProjectToolStripMenuItem";
-            this.loadProjectToolStripMenuItem.Size = new System.Drawing.Size(202, 26);
+            this.loadProjectToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.loadProjectToolStripMenuItem.Text = "Load Project";
             this.loadProjectToolStripMenuItem.Click += new System.EventHandler(this.LoadProject_Click);
-            // 
-            // saveProjectToolStripMenuItem
-            // 
-            this.saveProjectToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.saveProjectToolStripMenuItem.Enabled = false;
-            this.saveProjectToolStripMenuItem.ForeColor = System.Drawing.Color.Silver;
-            this.saveProjectToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.saveProjectToolStripMenuItem.Name = "saveProjectToolStripMenuItem";
-            this.saveProjectToolStripMenuItem.Size = new System.Drawing.Size(202, 26);
-            this.saveProjectToolStripMenuItem.Text = "Save Project As...";
-            this.saveProjectToolStripMenuItem.Click += new System.EventHandler(this.SaveProjectAs_Click);
             // 
             // settingsToolStripMenuItem
             // 
@@ -242,7 +248,7 @@ namespace ShrineForm
             this.settingsToolStripMenuItem.ForeColor = System.Drawing.Color.Silver;
             this.settingsToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(202, 26);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.settingsToolStripMenuItem.Text = "Settings";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.Settings_Click);
             // 
@@ -272,8 +278,8 @@ namespace ShrineForm
             this.ThemeName = "MetroDarkBlue";
             this.Resize += new System.EventHandler(this.MainForm_Resize);
             this.tableLayoutPanel_Container.ResumeLayout(false);
+            this.tableLayoutPanel_Main.ResumeLayout(false);
             this.tableLayoutPanel_Workspace.ResumeLayout(false);
-            this.metroSetTabControl_Workspace.ResumeLayout(false);
             this.menuStrip_Main.ResumeLayout(false);
             this.menuStrip_Main.PerformLayout();
             this.ResumeLayout(false);
@@ -290,7 +296,6 @@ namespace ShrineForm
         private System.Windows.Forms.MenuStrip menuStrip_Main;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newProjectToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem saveProjectToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
         private MetroSet_UI.Components.StyleManager styleManager;
         private System.Windows.Forms.RichTextBox richTextBox_OutputLog;

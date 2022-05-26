@@ -26,6 +26,7 @@ namespace ShrineForm
             SetupLogging();
 
             SetupToolstripRenderer();
+            settings.Initialize("SettingsForm");
         }
 
         private void SetupToolstripRenderer()
@@ -44,7 +45,7 @@ namespace ShrineForm
             #endif
 
             Output.VerboseLog("Program started.", ConsoleColor.Gray);
-            Output.Log("Create a new project or load an existing one to get started.", ConsoleColor.Green, true);
+            Output.Log("Create a new project or load an existing one to get started.", ConsoleColor.Green);
             Output.Log("Log test.");
         }
 

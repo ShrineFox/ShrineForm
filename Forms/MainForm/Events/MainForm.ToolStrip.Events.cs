@@ -26,14 +26,8 @@ namespace ShrineForm
         {
             this.Text = $"{Exe.Name()} ";
             settings = new Settings();
-            ClearMainFormControls();
-            saveProjectToolStripMenuItem.Enabled = false;
-            OpenSettingsForm();
-        }
-
-        private void ClearMainFormControls()
-        {
             tableLayoutPanel_Main.Controls.Clear();
+            OpenSettingsForm();
         }
 
         private void Settings_Click(object sender, EventArgs e)
@@ -107,8 +101,6 @@ namespace ShrineForm
 
             // Main Work Area Tabs with Panels
 
-            // Enable Save Toolstrip option
-            saveProjectToolStripMenuItem.Enabled = true;
         }
 
         private void SaveProjectAs_Click(object sender, EventArgs e)

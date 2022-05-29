@@ -8,6 +8,7 @@ ProjectName:
  - ["ControlType", "TextBox"]
  - ["DefaultValue", "New Project"]
  - ["Required", "true"]
+ - ["AlphanumericOnly", "true"]
 ProjectFolderPath:
  - ["Label", "Project Folder"]
  - ["ControlType", "TextBox"]

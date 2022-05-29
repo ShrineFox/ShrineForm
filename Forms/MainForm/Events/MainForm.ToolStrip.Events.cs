@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
+using MetroSet_UI.Controls;
 
 namespace ShrineForm
 {
@@ -17,22 +18,26 @@ namespace ShrineForm
     {
         private void NewProject_Click(object sender, EventArgs e)
         {
-            if (Forms.YesNoMsgBox("Exit Current Project?", 
+            if (settings.Data != null)
+                if (!Forms.YesNoMsgBox("Exit Current Project?",
                 "Are you sure you want to close the current project and start a new one?"))
-                NewProject();
+                    return;
+            NewProject();
         }
 
         private void NewProject()
         {
-            this.Text = $"{Exe.Name()} ";
-            settings = new Settings();
-            tableLayoutPanel_Main.Controls.Clear();
-            OpenSettingsForm();
+            var oldSettings = new Settings() { Data = settings.Data, FormSettings = settings.FormSettings, YmlPath = settings.YmlPath };
+            settings.Data = null;
+            if (OpenSettingsForm())
+                LoadProject();
+            else
+                settings = oldSettings;
         }
 
         private void Settings_Click(object sender, EventArgs e)
         {
-            OpenSettingsForm();
+            NewProject();
         }
 
         private bool OpenSettingsForm()
@@ -44,10 +49,9 @@ namespace ShrineForm
                 {
                     Output.VerboseLog("Closing Settings Form Without Saving");
                     return false;
-                } 
+                }
             }
-            Output.VerboseLog("Saving Settings and Loading Project");
-            LoadProject();
+            
             return true;
         }
 
@@ -79,21 +83,26 @@ namespace ShrineForm
             // Add current project name to Title Bar
             this.Text = $"{Exe.Name()} - {settings.GetValue("ProjectName")}";
 
+            // Remove existing form controls
+            foreach (MetroSetTabControl tabCtrl in this.GetAllControls<MetroSetTabControl>())
+                tabCtrl.Parent.Controls.Remove(tabCtrl);
+
+            // Get settings
             string inputFolderPath = settings.GetValue("InputFolderPath");
             string projectFolderPath = settings.GetValue("ProjectFolderPath");
             // File Explorer Tabs with Treeviews
             var browserTabControl = FormControls.SFTabControl("metroSetTabControl_FileBrowser");
             var inputFilesTabPage = FormControls.SFTabPage("inputFilesTabPage", "Files");
             var inputFilesTreeView = FormControls.SFTreeView("inputFilesTreeView", 0);
-            if (Directory.Exists(Path.GetDirectoryName(inputFolderPath)))
-                TreeViewBuilder.BuildTree(new DirectoryInfo(Path.GetDirectoryName(inputFolderPath)), inputFilesTreeView.Nodes);
+            if (Directory.Exists(inputFolderPath))
+                TreeViewBuilder.BuildTree(new DirectoryInfo(inputFolderPath), inputFilesTreeView.Nodes);
             inputFilesTabPage.Controls.Add(inputFilesTreeView);
             browserTabControl.TabPages.Add(inputFilesTabPage);
 
             var projectFilesTabPage = FormControls.SFTabPage("projectFilesTabPage", "Project");
             var projectFilesTreeView = FormControls.SFTreeView("projectFilesTreeView", 0);
-            if (Directory.Exists(Path.GetDirectoryName(projectFolderPath)))
-                TreeViewBuilder.BuildTree(new DirectoryInfo(Path.GetDirectoryName(projectFolderPath)), projectFilesTreeView.Nodes);
+            if (Directory.Exists(projectFolderPath))
+                TreeViewBuilder.BuildTree(new DirectoryInfo(projectFolderPath), projectFilesTreeView.Nodes);
             projectFilesTabPage.Controls.Add(projectFilesTreeView);
             browserTabControl.TabPages.Add(projectFilesTabPage);
 

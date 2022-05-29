@@ -22,36 +22,43 @@ namespace ShrineForm
                 if (!Forms.YesNoMsgBox("Exit Current Project?",
                 "Are you sure you want to close the current project and start a new one?"))
                     return;
-            NewProject();
-        }
-
-        private void NewProject()
-        {
-            var oldSettings = new Settings() { Data = settings.Data, FormSettings = settings.FormSettings, YmlPath = settings.YmlPath };
-            settings.Data = null;
-            if (OpenSettingsForm())
-                LoadProject();
-            else
-                settings = oldSettings;
+            OpenSettingsForm(true);
         }
 
         private void Settings_Click(object sender, EventArgs e)
         {
-            NewProject();
+            OpenSettingsForm();
         }
 
-        private bool OpenSettingsForm()
+        private bool OpenSettingsForm(bool newSettings = false)
         {
+            // Back up current settings
+            var oldSettings = new Settings() { Data = settings.Data, FormSettings = settings.FormSettings, YmlPath = settings.YmlPath };
+            // Nullify current settings if newSettings is true
+            if (newSettings)
+                settings.Data = null;
+            // Open Settings Form
             using (var dialog = settings.Form())
             {
                 Output.VerboseLog("Opening Settings Form");
-                if (dialog.ShowDialog() != DialogResult.OK)
+                if (dialog.ShowDialog() == DialogResult.OK)
                 {
+                    settings.Save(Path.Combine(projectPath, $"{settings.GetValue("ProjectName")}.yml"));
+                    // TODO: Prompt to move files to new destination if newSettings is false and project dir changed
+
+                    // Reload form if settings have changed
+                    if (oldSettings.Data != settings.Data || oldSettings.YmlPath != settings.YmlPath)
+                        LoadProject();
+                }
+                else
+                {
+                    // Revert settings if form closed without saving
                     Output.VerboseLog("Closing Settings Form Without Saving");
+                    settings = oldSettings;
                     return false;
                 }
             }
-            
+
             return true;
         }
 
@@ -76,12 +83,10 @@ namespace ShrineForm
         /// </summary>
         private void LoadProject(string ymlFile = "")
         {
-            if (ymlFile == "" )
             // Load settings from .yml file
             settings.Load(ymlFile);
 
-            // Add current project name to Title Bar
-            this.Text = $"{Exe.Name()} - {settings.GetValue("ProjectName")}";
+            UpdateMainFormOptions();
 
             // Remove existing form controls
             foreach (MetroSetTabControl tabCtrl in this.GetAllControls<MetroSetTabControl>())
@@ -112,9 +117,19 @@ namespace ShrineForm
 
         }
 
-        private void SaveProjectAs_Click(object sender, EventArgs e)
+        public void UpdateMainFormOptions()
         {
-            
+            // Add current project name to Title Bar
+            if (settings.Data != null)
+                this.Text = $"{Exe.Name()} - {settings.GetValue("ProjectName")}";
+            else
+                this.Text = $"{Exe.Name()} ";
+
+            // Enable or disable Settings option
+            if (!string.IsNullOrEmpty(settings.YmlPath))
+                settingsToolStripMenuItem.Enabled = true;
+            else
+                settingsToolStripMenuItem.Enabled = true;
         }
     }
 }

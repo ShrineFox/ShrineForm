@@ -16,6 +16,7 @@ namespace ShrineForm
     public partial class ShrineForm_Form : MetroSet_UI.Forms.MetroSetForm
     {
         public static Settings settings = new Settings();
+        public static string projectPath = Path.Combine(Exe.Directory(), "Projects");
 
         public ShrineForm_Form()
         {
@@ -23,10 +24,18 @@ namespace ShrineForm
             this.Text = $"{Exe.Name()} ";
 
             Forms.SetDefaultIcon();
+            SetTreeviewImages();
             SetupLogging();
 
             SetupToolstripRenderer();
             settings.Initialize("SettingsForm");
+        }
+
+        private void SetTreeviewImages()
+        {
+            string iconPath = Path.Combine(Path.Combine(Exe.Directory(), "FormSettings"), "Icons");
+            TreeViewBuilder.SetIcon(Path.Combine(iconPath, "page_white.png"), ".file");
+            TreeViewBuilder.SetIcon(Path.Combine(iconPath, "folder.png"), ".folder");
         }
 
         private void SetupToolstripRenderer()

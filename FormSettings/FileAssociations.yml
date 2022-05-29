@@ -1,0 +1,8 @@
+EXE:
+ - ["Icon", "application_xp_terminal"]
+ - ["Actions", "Run"]
+ - ["DefaultAction", "Run"]
+TXT:
+ - ["Icon", "application_xp_terminal"]
+ - ["Actions", "Edit"]
+ - ["DefaultAction", "Edit"]

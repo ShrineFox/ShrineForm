@@ -245,6 +245,7 @@ namespace ShrineForm
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.settingsToolStripMenuItem.Enabled = false;
             this.settingsToolStripMenuItem.ForeColor = System.Drawing.Color.Silver;
             this.settingsToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";

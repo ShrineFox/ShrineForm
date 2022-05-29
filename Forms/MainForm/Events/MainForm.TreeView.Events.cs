@@ -35,7 +35,7 @@ namespace ShrineForm
                         else if (ctrl.Name.ToLower().Contains("inputFiles"))
                         {
                             // Build File Directory Treeview
-                            var treeView_Files = (TreeView)ctrl;
+                            var treeView_Files = new TreeView();
                             var filesExpansionState = treeView_Files.Nodes.GetExpansionState();
 
                             treeView_Files.Nodes.Clear();

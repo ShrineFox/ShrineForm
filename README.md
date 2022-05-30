@@ -10,7 +10,7 @@ These apps, such as P-Studio and ACNHLab, are meant to simplify modding videogam
   For example, SettingsForm would be based on ``SettingsFormControls.yml``.  
 - Each setting can have various attributes, such as read-only, alphanumeric-only, required, default value etc.  
 - The settings will only be saved if they are valid, checked against these attributes when you click the Save button.  
-- Then, the program can use settings loaded from the ``.yml`` file for various operations in the program.  
+- The form can use settings loaded from the ``.yml`` file as needed when performing various operations.
 ## Dependencies
 - [MetroSet-UI](https://github.com/N-a-r-w-i-n/MetroSet-UI)
 - [ShrineFox.IO](https://github.com/ShrineFox/ShrineFox.IO)  

@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
 using MetroSet_UI.Controls;
+using Newtonsoft.Json.Linq;
 
 namespace ShrineForm
 {
@@ -33,7 +34,7 @@ namespace ShrineForm
         private bool OpenSettingsForm(bool newSettings = false)
         {
             // Back up current settings
-            var oldSettings = new Settings() { Data = settings.Data, FormSettings = settings.FormSettings, YmlPath = settings.YmlPath };
+            var oldSettings = new Settings() { Data = settings.Data, FormSettings = settings.FormSettings, jsonPath = settings.jsonPath };
             // Nullify current settings if newSettings is true
             if (newSettings)
                 settings.Data = null;
@@ -43,11 +44,11 @@ namespace ShrineForm
                 Output.VerboseLog("Opening Settings Form");
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
-                    settings.Save(Path.Combine(projectPath, $"{settings.GetValue("ProjectName")}.yml"));
+                    settings.Save(Path.Combine(projectPath, $"{settings.Data["ProjectName"].Value<string>()}.json"));
                     // TODO: Prompt to move files to new destination if newSettings is false and project dir changed
 
                     // Reload form if settings have changed
-                    if (oldSettings.Data != settings.Data || oldSettings.YmlPath != settings.YmlPath)
+                    if (oldSettings.Data != settings.Data || oldSettings.jsonPath != settings.jsonPath)
                         LoadProject();
                 }
                 else
@@ -65,7 +66,7 @@ namespace ShrineForm
         private void LoadProject_Click(object sender, EventArgs e)
         {
             CommonOpenFileDialog dialog = new CommonOpenFileDialog();
-            dialog.Filters.Add(new CommonFileDialogFilter($"{Exe.Name()} Project", "*.yml"));
+            dialog.Filters.Add(new CommonFileDialogFilter($"{Exe.Name()} Project", "*.json"));
             dialog.Title = "Open Project File...";
             // Start in Projects folder
             string initialDir = Path.Combine(Exe.Directory(), "Projects");
@@ -83,7 +84,7 @@ namespace ShrineForm
         /// </summary>
         private void LoadProject(string ymlFile = "")
         {
-            // Load settings from .yml file
+            // Load settings from .json file
             settings.Load(ymlFile);
 
             UpdateMainFormOptions();
@@ -93,8 +94,8 @@ namespace ShrineForm
                 tabCtrl.Parent.Controls.Remove(tabCtrl);
 
             // Get settings
-            string inputFolderPath = settings.GetValue("InputFolderPath");
-            string projectFolderPath = settings.GetValue("ProjectFolderPath");
+            string inputFolderPath = settings.Data["InputFolderPath"].Value<string>();
+            string projectFolderPath = settings.Data["ProjectFolderPath"].Value<string>();
             // File Explorer Tabs with Treeviews
             var browserTabControl = FormControls.SFTabControl("metroSetTabControl_FileBrowser");
             var inputFilesTabPage = FormControls.SFTabPage("inputFilesTabPage", "Files");
@@ -121,12 +122,12 @@ namespace ShrineForm
         {
             // Add current project name to Title Bar
             if (settings.Data != null)
-                this.Text = $"{Exe.Name()} - {settings.GetValue("ProjectName")}";
+                this.Text = $"{Exe.Name()} - {settings.Data["ProjectName"].Value<string>()}";
             else
                 this.Text = $"{Exe.Name()} ";
 
             // Enable or disable Settings option
-            if (!string.IsNullOrEmpty(settings.YmlPath))
+            if (!string.IsNullOrEmpty(settings.jsonPath))
                 settingsToolStripMenuItem.Enabled = true;
             else
                 settingsToolStripMenuItem.Enabled = true;

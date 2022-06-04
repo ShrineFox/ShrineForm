@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ShrineFox.IO;
 
 namespace ShrineForm
 {
@@ -18,7 +19,7 @@ namespace ShrineForm
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ShrineForm_Form());
+            Application.Run(new SFForm("ShrineForm", "FormSettings\\MainForm.json", "Saved\\MainUserData.json"));
         }
     }
 }

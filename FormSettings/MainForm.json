@@ -1,0 +1,33 @@
+{
+	"Form": {
+		"Name": "MainForm",
+		"Text": "Main Form",
+		"Width": "500",
+		"Height": "500",
+		"Controls": {
+			"menuStrip_Main": {
+				"ControlType": "System.Windows.Forms.MenuStrip",
+				"Controls": {
+					"menuItem_Settings": {
+						"ControlType": "System.Windows.Forms.ToolStripMenuItem",
+						"Text": "Settings"
+					}
+				}
+			},
+			"tableLayoutPanel_Main": {
+				"ControlType": "System.Windows.Forms.TableLayoutPanel",
+				"Rows": [ 100 ],
+				"Columns": [ 100 ],
+				"Controls": {
+					"panel_Main": {
+						"ControlType": "System.Windows.Forms.Panel",
+						"AutoScroll": true,
+						"AutoSize": false,
+						"Row": 0,
+						"Column": 0
+					}
+				}
+			}
+		}
+	}
+}

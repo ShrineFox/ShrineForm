@@ -1,7 +1,7 @@
 {
 	"Form": 
 	{
-		"Name": "SettingsForm",
+		"Name": "SFForm",
 		"Text": "Settings",
 		"Width": "500",
 		"Height": "500",

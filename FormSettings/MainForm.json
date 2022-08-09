@@ -1,9 +1,13 @@
 {
 	"Form": {
 		"Name": "MainForm",
-		"Text": "Main Form",
-		"Width": "1200",
-		"Height": "800",
+		"Text": "Form Name From JSON",
+		"Width": "960",
+		"Height": "540",
+		"MaxWidth": "1920",
+		"MaxHeight": "1080",
+		"MinWidth": "1",
+		"MinHeight": "1",
 		"Controls": {
 			"menuStrip_Main": {
 				"ControlType": "System.Windows.Forms.MenuStrip",
@@ -21,11 +25,12 @@
 				"AutoScroll": true,
 				"AutoSize": false,
 				"BackColor": "255,55,55,55",
+				"Padding": [ 0, 25, 0, 0 ],
 				"Controls": {
 					"tlp_Main": {
 						"ControlType": "System.Windows.Forms.TableLayoutPanel",
 						"Rows": [ 50, 50 ],
-						"Columns": [ 50, 25, 25 ],
+						"Columns": [ 25, 25, 50 ],
 						"Dock": "System.Windows.Forms.DockStyle.Top",
 						"AutoScroll": false,
 						"AutoSize": true,
@@ -34,20 +39,66 @@
 							"panel_Inner": {
 								"ControlType": "System.Windows.Forms.Panel",
 								"Dock": "System.Windows.Forms.DockStyle.Fill",
-								"Row": 1,
+								"Row": 0,
 								"Column": 0,
-								"Height": 500,
-								"Width": 500,
-								"BackColor": "255, 0, 55, 0"
+								"Height": 100,
+								"Width": 100,
+								"MinimumSize": [ 100, 100 ],
+								"BackColor": "255, 255, 69, 0",
+								"Controls": {
+									"lbl_R": {
+										"ControlType": "System.Windows.Forms.Label",
+										"Text": "Red"
+									}
+								}
 							},
 							"panel_Inner_2": {
 								"ControlType": "System.Windows.Forms.Panel",
 								"Dock": "System.Windows.Forms.DockStyle.Fill",
 								"Row": 0,
-								"Column": 2,
-								"Height": 200,
+								"Column": 1,
+								"Height": 100,
 								"Width": 100,
-								"BackColor": "255, 55, 0, 0"
+								"MinimumSize": [ 100, 100 ],
+								"BackColor": "255, 0, 168, 33",
+								"Controls": {
+									"lbl_G": {
+										"ControlType": "System.Windows.Forms.Label",
+										"Text": "Green"
+									}
+								}
+							},
+							"panel_Inner_3": {
+								"ControlType": "System.Windows.Forms.Panel",
+								"Dock": "System.Windows.Forms.DockStyle.Fill",
+								"Row": 1,
+								"Column": 0,
+								"Height": 100,
+								"Width": 100,
+								"MinimumSize": [ 100, 100 ],
+								"BackColor": "255, 0, 112, 228",
+								"Controls": {
+									"lbl_B": {
+										"ControlType": "System.Windows.Forms.Label",
+										"Text": "Blue"
+									}
+								}
+							},
+							"panel_Inner_4": {
+								"ControlType": "System.Windows.Forms.Panel",
+								"Dock": "System.Windows.Forms.DockStyle.Fill",
+								"Row": 1,
+								"Column": 1,
+								"Height": 100,
+								"Width": 100,
+								"MinimumSize": [ 100, 100 ],
+								"BackColor": "255, 255, 175, 0",
+								"Controls": {
+									"lbl_Y": {
+										"ControlType": "System.Windows.Forms.Label",
+										"Text": "Yellow"
+									}
+								}
 							}
 						}
 					}

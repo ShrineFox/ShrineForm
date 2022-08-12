@@ -16,7 +16,10 @@
 				"Controls": {
 					"menuItem_Settings": {
 						"ControlType": "System.Windows.Forms.ToolStripMenuItem",
-						"Text": "Settings"
+						"Text": "Run Script",
+						"Events": {
+							"Click": "RunScript.txt"
+						}
 					}
 				}
 			},
@@ -29,8 +32,8 @@
 				"Controls": {
 					"tlp_Main": {
 						"ControlType": "System.Windows.Forms.TableLayoutPanel",
-						"Rows": [ 50, 50 ],
-						"Columns": [ 25, 25, 50 ],
+						"Rows": [ 50 ],
+						"Columns": [ 25, 25, 25, 25 ],
 						"Dock": "System.Windows.Forms.DockStyle.Top",
 						"AutoScroll": false,
 						"AutoSize": true,
@@ -71,8 +74,8 @@
 							"panel_Inner_3": {
 								"ControlType": "System.Windows.Forms.Panel",
 								"Dock": "System.Windows.Forms.DockStyle.Fill",
-								"Row": 1,
-								"Column": 0,
+								"Row": 0,
+								"Column": 2,
 								"Height": 100,
 								"Width": 100,
 								"MinimumSize": [ 100, 100 ],
@@ -85,20 +88,15 @@
 								}
 							},
 							"panel_Inner_4": {
-								"ControlType": "System.Windows.Forms.Panel",
+								"ControlType": "System.Windows.Forms.TextBox",
 								"Dock": "System.Windows.Forms.DockStyle.Fill",
-								"Row": 1,
-								"Column": 1,
+								"Row": 0,
+								"Column": 3,
 								"Height": 100,
 								"Width": 100,
 								"MinimumSize": [ 100, 100 ],
-								"BackColor": "255, 255, 175, 0",
-								"Controls": {
-									"lbl_Y": {
-										"ControlType": "System.Windows.Forms.Label",
-										"Text": "Yellow"
-									}
-								}
+								"BackColor": "255, 255, 175, 0"
+								
 							}
 						}
 					}

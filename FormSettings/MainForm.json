@@ -14,11 +14,24 @@
 				"BackColor": "255, 25,25,25",
 				"ForeColor": "255, 255,255,255",
 				"Controls": {
-					"menuItem_Settings": {
+					"menuItem_Red": {
 						"ControlType": "System.Windows.Forms.ToolStripMenuItem",
-						"Text": "Run Script",
+						"Text": "Red",
 						"Events": {
-							"Click": "ShrineForm.Program.ScriptTest"
+							"Click": [
+								"ShrineForm.Program.SetColor",
+								[ "panel_Inner_4", "#ff0000", "Set color to red!" ]
+							]
+						}
+					},
+					"menuItem_Yellow": {
+						"ControlType": "System.Windows.Forms.ToolStripMenuItem",
+						"Text": "Yellow",
+						"Events": {
+							"Click": [
+								"ShrineForm.Program.SetColor",
+								[ "panel_Inner_4", "#ffff00", "Set color to yellow!" ]
+							]
 						}
 					}
 				}

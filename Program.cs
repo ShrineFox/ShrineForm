@@ -23,10 +23,10 @@ namespace ShrineForm
 
         private static SFForm mainForm = new SFForm("ShrineForm", "FormSettings\\MainForm.json", "Saved\\MainUserData.json");
 
-        public static void ScriptTest()
+        public static void SetColor(string ctrlName, string colorValue, string txt)
         {
-            Control ctrl = WinForms.GetControl(mainForm, "panel_Inner_4");
-            ctrl.SyncUI(() => { ctrl.BackColor = System.Drawing.Color.Red; ctrl.Text = "Set background to red!"; }, true);
+            Control ctrl = WinForms.GetControl(mainForm, ctrlName);
+            ctrl.SyncUI(() => { ctrl.BackColor = System.Drawing.ColorTranslator.FromHtml(colorValue); ctrl.Text = txt; }, true);
         }
     }
 }

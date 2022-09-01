@@ -17,13 +17,16 @@ namespace ShrineForm
         static void Main()
         {
             Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SFForm("ShrineForm", "FormSettings\\MainForm.json", "Saved\\MainUserData.json"));
+            SyncUIHelper.Initialize();
+            Application.Run(mainForm);
         }
+
+        private static SFForm mainForm = new SFForm("ShrineForm", "FormSettings\\MainForm.json", "Saved\\MainUserData.json");
 
         public static void ScriptTest()
         {
-            MessageBox.Show("Test");
+            Control ctrl = WinForms.GetControl(mainForm, "panel_Inner_4");
+            ctrl.SyncUI(() => { ctrl.BackColor = System.Drawing.Color.Red; ctrl.Text = "Set background to red!"; }, true);
         }
     }
 }

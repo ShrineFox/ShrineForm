@@ -18,7 +18,7 @@
 						"ControlType": "System.Windows.Forms.ToolStripMenuItem",
 						"Text": "Run Script",
 						"Events": {
-							"Click": "RunScript.txt"
+							"Click": "ShrineForm.Program.ScriptTest"
 						}
 					}
 				}

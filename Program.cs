@@ -20,5 +20,10 @@ namespace ShrineForm
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new SFForm("ShrineForm", "FormSettings\\MainForm.json", "Saved\\MainUserData.json"));
         }
+
+        public static void ScriptTest()
+        {
+            MessageBox.Show("Test");
+        }
     }
 }

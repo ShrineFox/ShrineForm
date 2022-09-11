@@ -5,6 +5,16 @@
       "BackColor": "255, 25,25,25",
       "ForeColor": "255, 255,255,255",
       "Controls": {
+        "menuItem_Save": {
+          "ControlType": "System.Windows.Forms.ToolStripMenuItem",
+          "Text": "Save",
+          "Events": {
+            "Click": [
+              "ShrineForm.Program.SaveFormText",
+              [ ]
+            ]
+          }
+        },
         "menuItem_Red": {
           "ControlType": "System.Windows.Forms.ToolStripMenuItem",
           "Text": "Red",

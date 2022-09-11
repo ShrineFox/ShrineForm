@@ -1,0 +1,8 @@
+{
+	"Controls": {
+		"panel_Inner_4": {
+			"ControlType": "System.Windows.Forms.TextBox",
+			"Text": "Text From Main User Data"
+		}
+	}
+}

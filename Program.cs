@@ -28,5 +28,10 @@ namespace ShrineForm
             Control ctrl = WinForms.GetControl(mainForm, ctrlName);
             ctrl.SyncUI(() => { ctrl.BackColor = System.Drawing.ColorTranslator.FromHtml(colorValue); ctrl.Text = txt; }, true);
         }
+
+        public static void SaveFormText()
+        {
+            mainForm.SaveData();
+        }
     }
 }

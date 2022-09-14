@@ -1,0 +1,14 @@
+{
+  "Controls": {
+    "menuItem_NewProject": {
+      "ControlType": "System.Windows.Forms.ToolStripMenuItem",
+      "Text": "New Project",
+      "Events": {
+        "Click": [
+          "ShrineForm.Program.NewProject_Click",
+          [ ]
+        ]
+      }
+    }
+  }
+}

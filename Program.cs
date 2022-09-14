@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace ShrineForm
 {
-    static class Program
+    static partial class Program
     {
         /// <summary>
         /// The main entry point for the application.
@@ -21,7 +21,7 @@ namespace ShrineForm
             Application.Run(mainForm);
         }
 
-        private static SFForm mainForm = new SFForm("ShrineForm", "FormSettings\\MainForm.json", "Saved\\MainUserData.json");
+        private static SFForm mainForm = new SFForm("ShrineForm", "Form\\PStudio\\PStudio.json");
 
         public static void SetColor(string ctrlName, string colorValue, string txt)
         {

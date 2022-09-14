@@ -1,0 +1,18 @@
+{
+  "Controls": {
+    "menuStrip_Main": {
+      "ControlType": "System.Windows.Forms.MenuStrip",
+      "BackColor": "255, 25,25,25",
+      "ForeColor": "255, 255,255,255",
+      "Controls": {
+        "menuItem_File": {
+          "ControlType": "System.Windows.Forms.ToolStripMenuItem",
+          "Text": "File",
+          "DropDownItems": {
+            "Json_File": "Controls/MenuStrip/File.json"
+          }
+        }
+      }
+    }
+  }
+}

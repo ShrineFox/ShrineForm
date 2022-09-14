@@ -1,0 +1,29 @@
+{
+  "Controls": {
+    "tabControl_SideBar": {
+      "ControlType": "MetroSet_UI.Controls.MetroSetTabControl",
+      "Dock": "System.Windows.Forms.DockStyle.Fill",
+      "Row": 0,
+      "Column": 0,
+      "Height": 100,
+      "Width": 100,
+      "MinimumSize": [ 100, 100 ],
+      "BackColor": "255, 32, 32, 32",
+      "ForeColor": "255, 102, 102, 106",
+      "Style": "MetroSet_UI.Enums.Style.Dark",
+      "Controls": {
+        "Json_Game": "Controls/Sidebar/Game.json",
+        "Json_Project": "Controls/Sidebar/Project.json"
+      }
+    },
+    "btn_ShowHide": {
+      "ControlType": "MetroSet_UI.Controls.MetroSetButton",
+      "Dock": "System.Windows.Forms.DockStyle.Fill",
+      "Row": 0,
+      "Column": 1,
+      "MinimumSize": [ 5, 5 ],
+      "Text": "<<",
+      "Font": [ "Microsoft Sans Serif", "7F" ]
+    }
+  }
+}

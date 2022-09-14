@@ -6,7 +6,17 @@
       "Events": {
         "Click": [
           "ShrineForm.Program.NewProject_Click",
-          [ ]
+          []
+        ]
+      }
+    },
+    "menuItem_ProjectSettings": {
+      "ControlType": "System.Windows.Forms.ToolStripMenuItem",
+      "Text": "Project Settings",
+      "Events": {
+        "Click": [
+          "ShrineForm.Program.Settings_Click",
+          []
         ]
       }
     }

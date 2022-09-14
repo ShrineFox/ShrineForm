@@ -4,10 +4,10 @@
 		"Text": "Form Name From JSON",
 		"Width": "960",
 		"Height": "540",
-		"MaxWidth": "1920",
-		"MaxHeight": "1080",
-		"MinWidth": "1",
-		"MinHeight": "1",
+		"MaxWidth": "9999",
+		"MaxHeight": "9999",
+		"MinWidth": "960",
+		"MinHeight": "540",
 		"Controls": {
 			"Json_MenuStrip": "Controls/MenuStrip.json",
 			"Json_PanelMain": "Controls/MainPanel.json"

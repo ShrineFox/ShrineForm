@@ -1,0 +1,43 @@
+{
+  "Controls": {
+    "tlp_Workspace": {
+      "ControlType": "System.Windows.Forms.TableLayoutPanel",
+      "Dock": "System.Windows.Forms.DockStyle.Fill",
+      "Rows": [ 85, 15 ],
+      "Columns": [ 100 ],
+      "Row": 0,
+      "Column": 2,
+      "Height": 100,
+      "Width": 100,
+      "MinimumSize": [ 100, 100 ],
+      "BackColor": "255, 32, 32, 32",
+      "ForeColor": "255, 102, 102, 106",
+      "Controls": {
+        "tabControl_Workspace": {
+          "ControlType": "MetroSet_UI.Controls.MetroSetTabControl",
+          "Dock": "System.Windows.Forms.DockStyle.Fill",
+          "Row": 0,
+          "Column": 0,
+          "Height": 100,
+          "Width": 100,
+          "MinimumSize": [ 100, 100 ],
+          "BackColor": "255, 32, 32, 32",
+          "ForeColor": "255, 102, 102, 106",
+          "Style": "MetroSet_UI.Enums.Style.Dark"
+        },
+        "rtb_Log": {
+          "ControlType": "System.Windows.Forms.RichTextBox",
+          "Dock": "System.Windows.Forms.DockStyle.Fill",
+          "BorderStyle": "System.Windows.Forms.BorderStyle.None",
+          "Row": 1,
+          "Column": 0,
+          "ReadOnly": true,
+          "BackColor": "255, 32, 32, 32",
+          "ForeColor": "255, 193, 193, 193",
+          "Text": "Welcome to P-Studio!",
+          "Font": [ "Microsoft Sans Serif", "8F" ]
+        }
+      }
+    }
+  }
+}

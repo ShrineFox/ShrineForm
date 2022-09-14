@@ -100,6 +100,18 @@
     <None Include="Form\PStudio\Controls\MenuStrip\File.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="Form\PStudio\Controls\Sidebar.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Form\PStudio\Controls\Sidebar\Game.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Form\PStudio\Controls\Sidebar\Project.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Form\PStudio\Controls\Workspace.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Form\PStudio\FileAssociations.yml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

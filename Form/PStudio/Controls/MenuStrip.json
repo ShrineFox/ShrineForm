@@ -4,6 +4,7 @@
       "ControlType": "System.Windows.Forms.MenuStrip",
       "BackColor": "255, 25,25,25",
       "ForeColor": "255, 255,255,255",
+      "Font": [ "Microsoft Sans Serif", "10F" ],
       "Controls": {
         "menuItem_File": {
           "ControlType": "System.Windows.Forms.ToolStripMenuItem",

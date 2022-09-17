@@ -3,16 +3,15 @@
 		"tlp_Outer": {
 			"ControlType": "System.Windows.Forms.TableLayoutPanel",
 			"Dock": "System.Windows.Forms.DockStyle.Fill",
-			"BackColor": "255, 32, 32, 32",
 			"Rows": [ 85, 15 ],
 			"Columns": [ 100 ],
+			"BackColor": "255, 32, 32, 32",
+			"ForeColor": "255, 193, 193, 193",
 			"Controls": {
 				"panel_Main": {
 					"ControlType": "System.Windows.Forms.Panel",
 					"AutoScroll": true,
 					"AutoSize": false,
-					"BackColor": "255, 32, 32, 32",
-					"Padding": [ 0, 25, 0, 0 ],
 					"Dock": "System.Windows.Forms.DockStyle.Fill",
 					"Row": 0,
 					"Column": 0,
@@ -23,33 +22,33 @@
 							"Dock": "System.Windows.Forms.DockStyle.Fill",
 							"AutoScroll": false,
 							"AutoSize": true,
+							"Font": [ "Microsoft Sans Serif", "8F" ],
 							"AutoSizeMode": "System.Windows.Forms.AutoSizeMode.GrowAndShrink",
 							"Controls": {
 								"Json_Options": "Controls/ProjOptions.json"
 							}
 						}
-					},
-					"tlp_Buttons": {
-						"ControlType": "System.Windows.Forms.TableLayoutPanel",
-						"Dock": "System.Windows.Forms.DockStyle.Fill",
-						"BackColor": "255, 32, 32, 32",
-						"Rows": [ 100 ],
-						"Columns": [ 50, 25, 25 ],
-						"Row": 1,
-						"Column": 0,
-						"Controls": {
-							"btn_Save": {
-								"ControlType": "System.Windows.Forms.Button",
-								"Text": "Save",
-								"Row": 0,
-								"Column": 1
-							},
-							"btn_Cancel": {
-								"ControlType": "System.Windows.Forms.Button",
-								"Text": "Cancel",
-								"Row": 0,
-								"Column": 2
-							}
+					}
+				},
+				"tlp_Buttons": {
+					"ControlType": "System.Windows.Forms.TableLayoutPanel",
+					"Dock": "System.Windows.Forms.DockStyle.Fill",
+					"Rows": [ 100 ],
+					"Columns": [ 50, 25, 25 ],
+					"Row": 1,
+					"Column": 0,
+					"Controls": {
+						"btn_Save": {
+							"ControlType": "System.Windows.Forms.Button",
+							"Text": "Save",
+							"Row": 0,
+							"Column": 1
+						},
+						"btn_Cancel": {
+							"ControlType": "System.Windows.Forms.Button",
+							"Text": "Cancel",
+							"Row": 0,
+							"Column": 2
 						}
 					}
 				}

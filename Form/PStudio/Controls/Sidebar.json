@@ -3,6 +3,7 @@
     "tabControl_SideBar": {
       "ControlType": "MetroSet_UI.Controls.MetroSetTabControl",
       "Dock": "System.Windows.Forms.DockStyle.Fill",
+      "Font": [ "Microsoft Sans Serif", "8F" ],
       "Row": 0,
       "Column": 0,
       "Height": 100,

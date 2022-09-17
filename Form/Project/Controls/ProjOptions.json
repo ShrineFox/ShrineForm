@@ -3,8 +3,6 @@
 		"lbl_ProjectName": {
 			"ControlType": "System.Windows.Forms.Label",
 			"Dock": "System.Windows.Forms.DockStyle.Right",
-			"BackColor": "255, 32, 32, 32",
-			"ForeColor": "255, 102, 102, 106",
 			"Row": 0,
 			"Column": 0,
 			"Text": "Project Name:"
@@ -12,16 +10,12 @@
 		"txt_ProjectName": {
 			"ControlType": "System.Windows.Forms.TextBox",
 			"Dock": "System.Windows.Forms.DockStyle.Fill",
-			"BackColor": "255, 32, 32, 32",
-			"ForeColor": "255, 102, 102, 106",
 			"Row": 0,
 			"Column": 1
 		},
 		"lbl_Game": {
 			"ControlType": "System.Windows.Forms.Label",
 			"Dock": "System.Windows.Forms.DockStyle.Right",
-			"BackColor": "255, 32, 32, 32",
-			"ForeColor": "255, 102, 102, 106",
 			"Row": 1,
 			"Column": 0,
 			"Text": "Game:"
@@ -29,8 +23,6 @@
 		"comboBox_Game": {
 			"ControlType": "System.Windows.Forms.ComboBox",
 			"Dock": "System.Windows.Forms.DockStyle.Fill",
-			"BackColor": "255, 32, 32, 32",
-			"ForeColor": "255, 102, 102, 106",
 			"Row": 1,
 			"Column": 1,
 			"Items": [ "", "Persona 5" ]
@@ -38,8 +30,6 @@
 		"lbl_Authors": {
 			"ControlType": "System.Windows.Forms.Label",
 			"Dock": "System.Windows.Forms.DockStyle.Right",
-			"BackColor": "255, 32, 32, 32",
-			"ForeColor": "255, 102, 102, 106",
 			"Row": 2,
 			"Column": 0,
 			"Text": "Authors:"
@@ -47,16 +37,12 @@
 		"txt_Authors": {
 			"ControlType": "System.Windows.Forms.TextBox",
 			"Dock": "System.Windows.Forms.DockStyle.Fill",
-			"BackColor": "255, 32, 32, 32",
-			"ForeColor": "255, 102, 102, 106",
 			"Row": 2,
 			"Column": 1
 		},
 		"lbl_Date": {
 			"ControlType": "System.Windows.Forms.Label",
 			"Dock": "System.Windows.Forms.DockStyle.Right",
-			"BackColor": "255, 32, 32, 32",
-			"ForeColor": "255, 102, 102, 106",
 			"Row": 3,
 			"Column": 0,
 			"Text": "Date:"
@@ -64,16 +50,12 @@
 		"txt_Date": {
 			"ControlType": "System.Windows.Forms.TextBox",
 			"Dock": "System.Windows.Forms.DockStyle.Fill",
-			"BackColor": "255, 32, 32, 32",
-			"ForeColor": "255, 102, 102, 106",
 			"Row": 3,
 			"Column": 1
 		},
 		"lbl_Version": {
 			"ControlType": "System.Windows.Forms.Label",
 			"Dock": "System.Windows.Forms.DockStyle.Right",
-			"BackColor": "255, 32, 32, 32",
-			"ForeColor": "255, 102, 102, 106",
 			"Row": 4,
 			"Column": 0,
 			"Text": "Version:"
@@ -81,8 +63,6 @@
 		"txt_Version": {
 			"ControlType": "System.Windows.Forms.TextBox",
 			"Dock": "System.Windows.Forms.DockStyle.Fill",
-			"BackColor": "255, 32, 32, 32",
-			"ForeColor": "255, 102, 102, 106",
 			"Row": 4,
 			"Column": 1,
 			"Text": "1.0.0"

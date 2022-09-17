@@ -1,7 +1,7 @@
 {
 	"Form": {
 		"Name": "MainForm",
-		"Text": "Form Name From JSON",
+		"Text": "P-Studio",
 		"Width": "960",
 		"Height": "540",
 		"MaxWidth": "9999",

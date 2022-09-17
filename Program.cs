@@ -21,17 +21,7 @@ namespace ShrineForm
             Application.Run(mainForm);
         }
 
-        private static SFForm mainForm = new SFForm("ShrineForm", "Form\\PStudio\\PStudio.json");
-
-        public static void SetColor(string ctrlName, string colorValue, string txt)
-        {
-            Control ctrl = WinForms.GetControl(mainForm, ctrlName);
-            ctrl.SyncUI(() => { ctrl.BackColor = System.Drawing.ColorTranslator.FromHtml(colorValue); ctrl.Text = txt; }, true);
-        }
-
-        public static void SaveFormText()
-        {
-            mainForm.SaveData();
-        }
+        private static SFForm mainForm = new SFForm($"P-Studio v{version}", "Form\\PStudio\\PStudio.json");
+        public static string version = "0.2";
     }
 }

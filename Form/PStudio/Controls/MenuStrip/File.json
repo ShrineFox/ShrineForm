@@ -10,12 +10,22 @@
         ]
       }
     },
-    "menuItem_ProjectSettings": {
+    "menuItem_LoadProject": {
       "ControlType": "System.Windows.Forms.ToolStripMenuItem",
-      "Text": "Project Settings",
+      "Text": "Load Project",
       "Events": {
         "Click": [
-          "ShrineForm.Program.Settings_Click",
+          "ShrineForm.Program.LoadProject_Click",
+          []
+        ]
+      }
+    },
+    "menuItem_EditProject": {
+      "ControlType": "System.Windows.Forms.ToolStripMenuItem",
+      "Text": "Edit Project",
+      "Events": {
+        "Click": [
+          "ShrineForm.Program.EditProject_Click",
           []
         ]
       }

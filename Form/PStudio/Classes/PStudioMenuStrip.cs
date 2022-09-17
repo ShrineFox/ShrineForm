@@ -14,7 +14,17 @@ namespace ShrineForm
 
         public static void NewProject_Click()
         {
-            MessageBox.Show("Clicked New Project!");
+            NewProject();
+        }
+
+        public static void LoadProject_Click()
+        {
+            SelectProject();
+        }
+
+        public static void EditProject_Click()
+        {
+            EditProject();
         }
     }
 }

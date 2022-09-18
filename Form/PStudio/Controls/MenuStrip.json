@@ -2,7 +2,7 @@
   "Controls": {
     "menuStrip_Main": {
       "ControlType": "System.Windows.Forms.MenuStrip",
-      "BackColor": "255, 25,25,25",
+      "BackColor": "255, 45,45,48",
       "ForeColor": "255, 255,255,255",
       "Font": [ "Microsoft Sans Serif", "10F" ],
       "Controls": {

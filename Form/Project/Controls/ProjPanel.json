@@ -5,7 +5,7 @@
 			"Dock": "System.Windows.Forms.DockStyle.Fill",
 			"Rows": [ 85, 15 ],
 			"Columns": [ 100 ],
-			"BackColor": "255, 32, 32, 32",
+			"BackColor": "255, 45, 45, 48",
 			"ForeColor": "255, 193, 193, 193",
 			"Controls": {
 				"panel_Main": {
@@ -18,12 +18,12 @@
 					"Controls": {
 						"tlp_Main": {
 							"ControlType": "System.Windows.Forms.TableLayoutPanel",
-							"Columns": [ 35, 65 ],
-							"Dock": "System.Windows.Forms.DockStyle.Fill",
+							"AutoSizeMode": "System.Windows.Forms.AutoSizeMode.GrowAndShrink",
+							"Dock": "System.Windows.Forms.DockStyle.Top",
 							"AutoScroll": false,
 							"AutoSize": true,
-							"Font": [ "Microsoft Sans Serif", "8F" ],
-							"AutoSizeMode": "System.Windows.Forms.AutoSizeMode.GrowAndShrink",
+							"Font": [ "Microsoft Sans Serif", "10F" ],
+							"Columns": [ 25, 70, 5 ],
 							"Controls": {
 								"Json_Options": "Controls/ProjOptions.json"
 							}
@@ -39,16 +39,21 @@
 					"Column": 0,
 					"Controls": {
 						"btn_Save": {
-							"ControlType": "System.Windows.Forms.Button",
+							"ControlType": "MetroSet_UI.Controls.MetroSetButton",
+							"Dock": "System.Windows.Forms.DockStyle.Fill",
 							"Text": "Save",
 							"Row": 0,
-							"Column": 1
+							"Column": 1,
+							"DialogResult": "System.Windows.Forms.DialogResult.OK",
+							"Enabled": false
 						},
 						"btn_Cancel": {
-							"ControlType": "System.Windows.Forms.Button",
+							"ControlType": "MetroSet_UI.Controls.MetroSetButton",
+							"Dock": "System.Windows.Forms.DockStyle.Fill",
 							"Text": "Cancel",
 							"Row": 0,
-							"Column": 2
+							"Column": 2,
+							"DialogResult": "System.Windows.Forms.DialogResult.Cancel"
 						}
 					}
 				}

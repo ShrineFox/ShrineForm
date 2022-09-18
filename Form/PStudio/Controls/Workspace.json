@@ -10,8 +10,6 @@
       "Height": 100,
       "Width": 100,
       "MinimumSize": [ 100, 100 ],
-      "BackColor": "255, 32, 32, 32",
-      "ForeColor": "255, 102, 102, 106",
       "Controls": {
         "tabControl_Workspace": {
           "ControlType": "MetroSet_UI.Controls.MetroSetTabControl",
@@ -21,8 +19,6 @@
           "Height": 100,
           "Width": 100,
           "MinimumSize": [ 100, 100 ],
-          "BackColor": "255, 32, 32, 32",
-          "ForeColor": "255, 102, 102, 106",
           "Style": "MetroSet_UI.Enums.Style.Dark"
         },
         "rtb_Log": {
@@ -32,8 +28,6 @@
           "Row": 1,
           "Column": 0,
           "ReadOnly": true,
-          "BackColor": "255, 32, 32, 32",
-          "ForeColor": "255, 193, 193, 193",
           "Text": "Welcome to P-Studio!",
           "Font": [ "Microsoft Sans Serif", "8F" ]
         }

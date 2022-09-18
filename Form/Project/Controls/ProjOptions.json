@@ -1,71 +1,159 @@
 {
 	"Controls": {
+		"lbl_Dummy_Start": {
+			"ControlType": "System.Windows.Forms.Label",
+			"Margin": [ 0, 0, 0, 10 ],
+			"Row": 0,
+			"Column": 1,
+			"Text": ""
+		},
 		"lbl_ProjectName": {
 			"ControlType": "System.Windows.Forms.Label",
-			"Dock": "System.Windows.Forms.DockStyle.Right",
-			"Row": 0,
+			"Dock": "System.Windows.Forms.DockStyle.Fill",
+			"AutoSize": false,
+			"TextAlign": "System.Drawing.ContentAlignment.MiddleRight",
+			"Row": 1,
 			"Column": 0,
 			"Text": "Project Name:"
 		},
 		"txt_ProjectName": {
 			"ControlType": "System.Windows.Forms.TextBox",
+			"BorderStyle": "System.Windows.Forms.BorderStyle.None",
 			"Dock": "System.Windows.Forms.DockStyle.Fill",
-			"Row": 0,
+			"BackColor": "255, 30, 30, 30",
+			"Margin": [ 0, 5, 0, 5 ],
+			"AutoSize": false,
+			"Height": 30,
+			"Row": 1,
 			"Column": 1
 		},
 		"lbl_Game": {
 			"ControlType": "System.Windows.Forms.Label",
-			"Dock": "System.Windows.Forms.DockStyle.Right",
-			"Row": 1,
+			"Dock": "System.Windows.Forms.DockStyle.Fill",
+			"AutoSize": false,
+			"TextAlign": "System.Drawing.ContentAlignment.MiddleRight",
+			"Row": 2,
 			"Column": 0,
 			"Text": "Game:"
 		},
 		"comboBox_Game": {
 			"ControlType": "System.Windows.Forms.ComboBox",
 			"Dock": "System.Windows.Forms.DockStyle.Fill",
-			"Row": 1,
+			"Margin": [ 0, 15, 0, 15 ],
+			"Row": 2,
 			"Column": 1,
-			"Items": [ "", "Persona 5" ]
+			"Items": [ "", "Persona 5" ],
+			"DropDownStyle": "System.Windows.Forms.ComboBoxStyle.DropDownList"
 		},
 		"lbl_Authors": {
 			"ControlType": "System.Windows.Forms.Label",
-			"Dock": "System.Windows.Forms.DockStyle.Right",
-			"Row": 2,
+			"Dock": "System.Windows.Forms.DockStyle.Fill",
+			"AutoSize": false,
+			"TextAlign": "System.Drawing.ContentAlignment.MiddleRight",
+			"Row": 3,
 			"Column": 0,
 			"Text": "Authors:"
 		},
 		"txt_Authors": {
 			"ControlType": "System.Windows.Forms.TextBox",
 			"Dock": "System.Windows.Forms.DockStyle.Fill",
-			"Row": 2,
+			"BorderStyle": "System.Windows.Forms.BorderStyle.None",
+			"BackColor": "255, 30, 30, 30",
+			"Margin": [ 0, 5, 0, 5 ],
+			"AutoSize": false,
+			"Height": 30,
+			"Row": 3,
 			"Column": 1
 		},
 		"lbl_Date": {
 			"ControlType": "System.Windows.Forms.Label",
-			"Dock": "System.Windows.Forms.DockStyle.Right",
-			"Row": 3,
+			"Dock": "System.Windows.Forms.DockStyle.Fill",
+			"AutoSize": false,
+			"TextAlign": "System.Drawing.ContentAlignment.MiddleRight",
+			"Row": 4,
 			"Column": 0,
 			"Text": "Date:"
 		},
 		"txt_Date": {
 			"ControlType": "System.Windows.Forms.TextBox",
 			"Dock": "System.Windows.Forms.DockStyle.Fill",
-			"Row": 3,
+			"BorderStyle": "System.Windows.Forms.BorderStyle.None",
+			"BackColor": "255, 30, 30, 30",
+			"Margin": [ 0, 5, 0, 5 ],
+			"AutoSize": false,
+			"Height": 30,
+			"Row": 4,
 			"Column": 1
+		},
+		"lbl_Desc": {
+			"ControlType": "System.Windows.Forms.Label",
+			"Dock": "System.Windows.Forms.DockStyle.Fill",
+			"AutoSize": false,
+			"TextAlign": "System.Drawing.ContentAlignment.MiddleRight",
+			"Row": 5,
+			"Column": 0,
+			"Text": "Description:"
+		},
+		"txt_Desc": {
+			"ControlType": "System.Windows.Forms.TextBox",
+			"Dock": "System.Windows.Forms.DockStyle.Fill",
+			"BorderStyle": "System.Windows.Forms.BorderStyle.None",
+			"BackColor": "255, 30, 30, 30",
+			"Margin": [ 0, 5, 0, 5 ],
+			"Row": 5,
+			"Column": 1,
+			"Multiline": true,
+			"AutoSize": false,
+			"Height": 100
 		},
 		"lbl_Version": {
 			"ControlType": "System.Windows.Forms.Label",
-			"Dock": "System.Windows.Forms.DockStyle.Right",
-			"Row": 4,
+			"Dock": "System.Windows.Forms.DockStyle.Fill",
+			"AutoSize": false,
+			"TextAlign": "System.Drawing.ContentAlignment.MiddleRight",
+			"Row": 6,
 			"Column": 0,
 			"Text": "Version:"
 		},
 		"txt_Version": {
 			"ControlType": "System.Windows.Forms.TextBox",
 			"Dock": "System.Windows.Forms.DockStyle.Fill",
-			"Row": 4,
+			"BorderStyle": "System.Windows.Forms.BorderStyle.None",
+			"BackColor": "255, 30, 30, 30",
+			"Margin": [ 0, 5, 0, 5 ],
+			"AutoSize": false,
+			"Height": 30,
+			"Row": 6,
 			"Column": 1,
 			"Text": "1.0.0"
+		},
+		"lbl_Changelog": {
+			"ControlType": "System.Windows.Forms.Label",
+			"Dock": "System.Windows.Forms.DockStyle.Fill",
+			"AutoSize": false,
+			"TextAlign": "System.Drawing.ContentAlignment.MiddleRight",
+			"Row": 7,
+			"Column": 0,
+			"Text": "Change Log:"
+		},
+		"txt_Changelog": {
+			"ControlType": "System.Windows.Forms.TextBox",
+			"Dock": "System.Windows.Forms.DockStyle.Fill",
+			"BorderStyle": "System.Windows.Forms.BorderStyle.None",
+			"BackColor": "255, 30, 30, 30",
+			"Margin": [ 0, 5, 0, 5 ],
+			"Row": 7,
+			"Column": 1,
+			"Multiline": true,
+			"AutoSize": false,
+			"Height": 100
+		},
+		"lbl_Dummy_End": {
+			"ControlType": "System.Windows.Forms.Label",
+			"Row": 8,
+			"Column": 1,
+			"Margin": [ 0, 0, 0, 10 ],
+			"Text": ""
 		}
 	}
 }

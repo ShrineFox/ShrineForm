@@ -4,7 +4,7 @@
 			"ControlType": "System.Windows.Forms.Panel",
 			"AutoScroll": true,
 			"AutoSize": false,
-			"BackColor": "255, 32, 32, 32",
+			"BackColor": "255, 45, 45, 48",
 			"Padding": [ 0, 25, 0, 0 ],
 			"Font": [ "Microsoft Sans Serif", "10F" ],
 			"Dock": "System.Windows.Forms.DockStyle.Fill",

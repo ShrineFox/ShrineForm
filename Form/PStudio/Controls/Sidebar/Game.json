@@ -10,8 +10,6 @@
         "treeView_Game": {
           "ControlType": "System.Windows.Forms.TreeView",
           "Dock": "System.Windows.Forms.DockStyle.Fill",
-          "BackColor": "255, 32, 32, 32",
-          "ForeColor": "255, 102, 102, 106",
           "BorderStyle": "System.Windows.Forms.BorderStyle.None"
         }
       }
